@@ -9,6 +9,11 @@ on:
       - main
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: MegaLinter
+      uses: oxsecurity/megalinter@v7.13.0
   build:
     runs-on: ubuntu-latest
     steps:
