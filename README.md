@@ -1,6 +1,5 @@
 # Kubernetes Security Policy Auditor
 
-
 `k8s-security-policy-auditor` is a Kubernetes controller designed to audit security policies and configurations within a Kubernetes cluster. It helps ensure that your cluster resources, such as ConfigMaps, Secrets, Roles, and RoleBindings, adhere to best security practices.
 
 ## Features
@@ -88,7 +87,30 @@ Build the binary:
 go build -o k8s-security-policy-auditor .
 ``````
 
+#### Example logs
 
+```shell
+2024-08-07T21:56:59Z	INFO	Auditing RoleBinding	{"Namespace": "litmus", "Name": "litmus-admin-ops-role-binding"}
+2024-08-07T21:56:59Z	INFO	Reconciling resource	{"Request.Namespace": "kyverno", "Request.Name": "sh.helm.release.v1.kyverno.v1", "Namespace": "kyverno", "Name": "sh.helm.release.v1.kyverno.v1"}
+2024-08-07T21:56:59Z	INFO	Auditing Secret	{"Namespace": "kyverno", "Name": "sh.helm.release.v1.kyverno.v1"}
+2024-08-07T21:56:59Z	INFO	Reconciling resource	{"Request.Namespace": "litmus", "Request.Name": "chaos-litmus-admin-secret", "Namespace": "litmus", "Name": "chaos-litmus-admin-secret"}
+2024-08-07T21:56:59Z	INFO	Auditing Secret	{"Namespace": "litmus", "Name": "chaos-litmus-admin-secret"}
+2024-08-07T21:56:59Z	INFO	Reconciling resource	{"Request.Namespace": "litmus", "Request.Name": "chaos-mongodb", "Namespace": "litmus", "Name": "chaos-mongodb"}
+2024-08-07T21:56:59Z	INFO	Auditing Secret	{"Namespace": "litmus", "Name": "chaos-mongodb"}
+2024-08-07T21:56:59Z	INFO	Reconciling resource	{"Request.Namespace": "default", "Request.Name": "ghcr-secret", "Namespace": "default", "Name": "ghcr-secret"}
+2024-08-07T21:56:59Z	INFO	Auditing Secret	{"Namespace": "default", "Name": "ghcr-secret"}
+2024-08-07T21:56:59Z	INFO	Reconciling resource	{"Request.Namespace": "kyverno", "Request.Name": "kyverno-cleanup-controller.kyverno.svc.kyverno-tls-pair", "Namespace": "kyverno", "Name": "kyverno-cleanup-controller.kyverno.svc.kyverno-tls-pair"}
+2024-08-07T21:56:59Z	INFO	Auditing Secret	{"Namespace": "kyverno", "Name": "kyverno-cleanup-controller.kyverno.svc.kyverno-tls-pair"}
+2024-08-07T21:56:59Z	INFO	Reconciling resource	{"Request.Namespace": "kyverno", "Request.Name": "kyverno-svc.kyverno.svc.kyverno-tls-ca", "Namespace": "kyverno", "Name": "kyverno-svc.kyverno.svc.kyverno-tls-ca"}
+2024-08-07T21:56:59Z	INFO	Auditing Secret	{"Namespace": "kyverno", "Name": "kyverno-svc.kyverno.svc.kyverno-tls-ca"}
+2024-08-07T21:56:59Z	INFO	Reconciling resource	{"Request.Namespace": "kyverno", "Request.Name": "kyverno-svc.kyverno.svc.kyverno-tls-pair", "Namespace": "kyverno", "Name": "kyverno-svc.kyverno.svc.kyverno-tls-pair"}
+2024-08-07T21:56:59Z	INFO	Auditing Secret	{"Namespace": "kyverno", "Name": "kyverno-svc.kyverno.svc.kyverno-tls-pair"}
+2024-08-07T21:56:59Z	INFO	Reconciling resource	{"Request.Namespace": "kyverno", "Request.Name": "kyverno-cleanup-controller.kyverno.svc.kyverno-tls-ca", "Namespace": "kyverno", "Name": "kyverno-cleanup-controller.kyverno.svc.kyverno-tls-ca"}
+2024-08-07T21:56:59Z	INFO	Auditing Secret	{"Namespace": "kyverno", "Name": "kyverno-cleanup-controller.kyverno.svc.kyverno-tls-ca"}
+2024-08-07T21:56:59Z	INFO	Reconciling resource	{"Request.Namespace": "litmus", "Request.Name": "sh.helm.release.v1.chaos.v1", "Namespace": "litmus", "Name": "sh.helm.release.v1.chaos.v1"}
+2024-08-07T21:56:59Z	INFO	Auditing Secret	{"Namespace": "litmus", "Name": "sh.helm.release.v1.chaos.v1"}
+2024-08-07T21:56:59Z	INFO	Reconciling resource	{"Request.Namespace": "litmus", "Request.Name": "subscriber-secret", "Namespace": "litmus", "Name": "subscriber-secret"}
+```
 
 
 ## Contributing
