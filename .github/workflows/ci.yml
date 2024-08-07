@@ -15,6 +15,7 @@ jobs:
     - name: MegaLinter
       uses: oxsecurity/megalinter@v7.13.0
   build:
+    needs: [lint]
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
