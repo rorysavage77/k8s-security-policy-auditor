@@ -10,24 +10,29 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
-
     - name: Set up Go
-      uses: actions/setup-go@v5.0.2
+      uses: actions/setup-go@v4
       with:
         go-version: '1.22'
-
     - name: Install dependencies
       run: go mod tidy
-
     - name: Run tests
       run: go test -v ./...
-
-    - name: Build
+    - name: Build binary
       run: go build -v -o k8s-security-policy-auditor .
-
+    - name: Log in to GitHub Container Registry
+      uses: docker/login-action@v2
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Build Docker image
+      run: |
+        docker build -t ghcr.io/${{ github.repository_owner }}/k8s-security-policy-auditor:latest .
+    - name: Push Docker image to GHCR
+      run: |
+        docker push ghcr.io/${{ github.repository_owner }}/k8s-security-policy-auditor:latest
