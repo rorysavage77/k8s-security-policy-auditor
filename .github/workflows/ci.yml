@@ -29,7 +29,7 @@ jobs:
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+        password: ${{ secrets.RAS_TOKEN }}
     - name: Build Docker image
       run: |
         docker build -t ghcr.io/${{ github.repository_owner }}/k8s-security-policy-auditor:latest .
