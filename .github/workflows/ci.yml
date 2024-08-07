@@ -12,6 +12,8 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
     - name: MegaLinter
       uses: oxsecurity/megalinter@v7.13.0
   build:
