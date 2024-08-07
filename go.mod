@@ -1,6 +1,6 @@
 module github.com/rorysavage77/k8s-security-policy-auditor
 
-go 1.22.5
+go 1.23
 
 require (
 	github.com/onsi/ginkgo/v2 v2.19.1
