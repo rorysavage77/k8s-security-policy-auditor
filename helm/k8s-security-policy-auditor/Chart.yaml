@@ -1,0 +1,5 @@
+apiVersion: v2
+name: k8s-security-policy-auditor
+description: A Helm chart for Kubernetes
+version: 0.0.6
+appVersion: "1.0"
