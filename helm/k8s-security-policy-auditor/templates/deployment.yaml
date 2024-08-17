@@ -14,6 +14,7 @@ spec:
       labels:
         app: k8s-security-policy-auditor
     spec:
+      serviceAccountName: k8s-security-policy-auditor-sa
       containers:
       - name: k8s-security-policy-auditor
         image: ghcr.io/rorysavage77/k8s-security-policy-auditor:latest
